@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sci-Plex UMAP</title>
+<style>
+  body { margin: 0; padding: 12px 16px; font: 14px/1.4 "Segoe UI", system-ui, sans-serif; color: #111; }
+  #controls { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-bottom: 8px; }
+  label { display: inline-flex; align-items: center; gap: 6px; }
+  select { font: inherit; padding: 2px 4px; max-width: 260px; }
+  #umap { width: 100%; height: calc(100vh - 90px); min-height: 420px; }
+  #count { color: #555; }
+</style>
+</head>
+<body>
+<div id="controls">
+  <label>Color by
+    <select id="colorBy">
+      <option value="cell_line">Cell line</option>
+      <option value="compound">Compound</option>
+      <option value="dose">Dose</option>
+    </select>
+  </label>
+  <label>Cell line <select id="fCellLine"></select></label>
+  <label>Compound <select id="fCompound"></select></label>
+  <label>Dose <select id="fDose"></select></label>
+  <label><input type="checkbox" id="showVehicle" checked> Show vehicle (control)</label>
+  <span id="count"></span>
+</div>
+<div id="umap"></div>
+
+<script src="lib/plotly-2.35.2.min.js"></script>
+<script src="data/cells.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
