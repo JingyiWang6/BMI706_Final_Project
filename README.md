@@ -11,7 +11,9 @@ BMI 706 project: an interactive view of single-cell drug responses in the sci-Pl
 
 ## Data source
 
+We use the **sci-Plex 3** dataset from [Srivatsan et al. (2020)](https://doi.org/10.1126/science.aax6234), which is publicly available through GEO ([GSM4150378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4150378)). The source files contain raw counts, cell metadata, and gene annotations.
 
+The notebook  `data_preprocess/sciPlex3_combine.ipynb` combines these files into an AnnData object. Then `data_preprocess/sciPlex3_preprocess.ipynb` removes cells with fewer than 200 detected genes and genes detected in fewer than three cells, and selects 3,000 highly variable genes. Counts are normalized and log-transformed before computing 50 principal components, a 15-neighbor graph, and a 2D UMAP. The resulting `sciplex3_pca_umap.h5ad` supplies the coordinates and metadata.
 
 ## Packages
 
